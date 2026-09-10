@@ -1,0 +1,615 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>RAJU BHAI — Finance & Insurance Consultant</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Cinzel:wght@500;600;700;900&family=Poppins:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+<style>
+  :root{
+    --white:#F8F7F2;
+    --white-dim:#EFEDE4;
+    --red:#FB3640;
+    --red-dark:#D42730;
+    --red-deep:#A31D24;
+    --blue:#22577A;
+    --blue-dark:#173F59;
+    --blue-light:#3A7098;
+  }
+  * { box-sizing: border-box; margin:0; padding:0; }
+  html { scroll-behavior: smooth; }
+  body {
+    background: var(--white);
+    color: var(--blue-dark);
+    font-family: 'Poppins', sans-serif;
+    overflow-x: hidden;
+  }
+
+  /* ===== FULL-SCREEN HERO SECTION ===== */
+  .hero {
+    position: relative;
+    min-height: 100vh;
+    width: 100vw;
+    display: flex;
+    align-items: center;
+    justify-content: flex-start;
+    padding: 90px 6vw;
+    overflow: hidden;
+    background: #080c10;
+  }
+
+  /* Full bleed cover image */
+  .hero-bg-media {
+    position: absolute;
+    inset: 0;
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    object-position: center 20%;
+    z-index: 1;
+  }
+
+  /* Cinematic darkening gradient overlays for text readability */
+  .hero-overlay {
+    position: absolute;
+    inset: 0;
+    z-index: 2;
+    background: 
+      linear-gradient(90deg, rgba(8, 14, 20, 0.94) 0%, rgba(13, 24, 34, 0.82) 38%, rgba(10, 20, 30, 0.45) 65%, rgba(6, 12, 18, 0.7) 100%),
+      linear-gradient(180deg, rgba(8, 14, 20, 0.5) 0%, transparent 40%, rgba(8, 14, 20, 0.85) 100%);
+    pointer-events: none;
+  }
+
+  .hero-text {
+    position: relative;
+    z-index: 3;
+    max-width: 620px;
+    backdrop-filter: blur(1px);
+  }
+
+  .eyebrow {
+    font-family: 'Poppins', sans-serif;
+    font-weight: 700;
+    letter-spacing: 3px;
+    font-size: 0.85rem;
+    color: var(--red);
+    margin-bottom: 16px;
+    text-transform: uppercase;
+    text-shadow: 0 2px 10px rgba(0,0,0,0.8);
+  }
+
+  .name3d {
+    font-family: 'Cinzel', serif;
+    font-weight: 900;
+    font-size: clamp(3.2rem, 7vw, 5.8rem);
+    line-height: 1.0;
+    color: #ffffff;
+    text-shadow:
+      0 2px 0 var(--red-deep),
+      0 4px 0 var(--red-deep),
+      0 6px 18px rgba(0,0,0,0.9),
+      0 0 40px rgba(251,54,64,0.35);
+    letter-spacing: 2px;
+  }
+
+  .telugu-tag {
+    margin-top: 16px;
+    font-family: 'Poppins', sans-serif;
+    font-weight: 600;
+    font-size: 1.1rem;
+    color: #e4ecf2;
+    letter-spacing: 0.4px;
+    text-shadow: 0 2px 8px rgba(0,0,0,0.8);
+  }
+  .telugu-tag .translation {
+    display: block;
+    font-weight: 400;
+    font-size: 0.85rem;
+    color: #9cbacf;
+    margin-top: 4px;
+    font-style: italic;
+  }
+
+  .roles {
+    margin-top: 24px;
+    display: flex;
+    flex-wrap: wrap;
+    gap: 12px;
+  }
+  .role-pill {
+    font-weight: 600;
+    font-size: 0.92rem;
+    color: #f0f4f8;
+    background: rgba(23, 63, 89, 0.6);
+    border: 1px solid rgba(156, 186, 207, 0.35);
+    padding: 8px 20px;
+    border-radius: 4px;
+    letter-spacing: 0.4px;
+    backdrop-filter: blur(8px);
+  }
+  .role-pill.red-fill {
+    background: var(--red);
+    color: #ffffff;
+    border-color: var(--red);
+    font-weight: 700;
+    box-shadow: 0 4px 15px rgba(251,54,64,0.4);
+  }
+  .role-pill.blue-fill {
+    background: var(--blue);
+    color: #ffffff;
+    border-color: var(--blue);
+    font-weight: 700;
+  }
+
+  .quote {
+    margin-top: 32px;
+    font-family: 'Cinzel', serif;
+    font-style: normal;
+    font-size: 1.12rem;
+    color: #d6e5ef;
+    border-left: 3px solid var(--red);
+    padding-left: 18px;
+    line-height: 1.6;
+    text-shadow: 0 2px 10px rgba(0,0,0,0.8);
+  }
+
+  .plaque {
+    margin-top: 36px;
+    background: rgba(13, 33, 49, 0.82);
+    border: 1px solid rgba(251, 54, 64, 0.65);
+    border-radius: 6px;
+    padding: 22px 28px;
+    max-width: 420px;
+    box-shadow: 0 16px 40px rgba(0,0,0,0.6);
+    backdrop-filter: blur(10px);
+  }
+  .plaque .title {
+    font-family: 'Cinzel', serif;
+    font-weight: 700;
+    font-size: 1.3rem;
+    color: var(--red);
+    letter-spacing: 1.8px;
+  }
+  .plaque .sub {
+    font-size: 0.78rem;
+    letter-spacing: 2px;
+    color: rgba(240, 244, 248, 0.75);
+    margin-top: 4px;
+    text-transform: uppercase;
+  }
+  .plaque .divider {
+    height: 1px;
+    background: rgba(251,54,64,0.4);
+    margin: 16px 0;
+  }
+  .plaque .phone-row {
+    display: flex;
+    align-items: center;
+    gap: 14px;
+  }
+  .plaque .phone-icon {
+    width: 40px; height: 40px;
+    border-radius: 50%;
+    background: var(--red);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 1.15rem;
+    color: #fff;
+    flex-shrink: 0;
+    box-shadow: 0 0 12px rgba(251,54,64,0.5);
+  }
+  .plaque .phone-number {
+    font-family: 'Cinzel', serif;
+    font-size: 1.38rem;
+    font-weight: 700;
+    color: #ffffff;
+    letter-spacing: 1.2px;
+  }
+  .plaque .phone-label {
+    font-size: 0.72rem;
+    color: rgba(240, 244, 248, 0.65);
+    letter-spacing: 1.2px;
+    text-transform: uppercase;
+  }
+
+  /* ===== SIGNATURE STRIP ===== */
+  .strip {
+    background: var(--red);
+    padding: 22px 6vw;
+    text-align: center;
+    box-shadow: 0 4px 20px rgba(0,0,0,0.15);
+  }
+  .strip p {
+    font-family: 'Cinzel', serif;
+    font-size: clamp(0.95rem, 2vw, 1.25rem);
+    letter-spacing: 1.5px;
+    color: var(--white);
+    font-weight: 600;
+  }
+
+  /* ===== SERVICES ===== */
+  .services {
+    padding: 100px 6vw 60px;
+    max-width: 1150px;
+    margin: 0 auto;
+  }
+  .section-head {
+    text-align: center;
+    margin-bottom: 60px;
+  }
+  .section-head .eyebrow { margin-bottom: 14px; color: var(--red); }
+  .section-head h2 {
+    font-family: 'Cinzel', serif;
+    font-weight: 700;
+    font-size: clamp(1.8rem, 4vw, 2.6rem);
+    color: var(--blue-dark);
+    letter-spacing: 1px;
+  }
+
+  .grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+    gap: 26px;
+  }
+
+  .card {
+    background: var(--white);
+    border: 1px solid rgba(34,87,122,0.25);
+    border-radius: 6px;
+    padding: 32px 26px;
+    box-shadow: 0 4px 14px rgba(23,63,89,0.06);
+    transition: transform 0.15s ease-out, border-color 0.2s ease, box-shadow 0.2s ease;
+  }
+  .card:hover {
+    transform: translateY(-4px);
+    border-color: var(--red);
+    box-shadow: 0 18px 40px rgba(23,63,89,0.16);
+  }
+  .card.spy-card {
+    border-color: rgba(251,54,64,0.4);
+    background: var(--white-dim);
+  }
+  .card.spy-card:hover {
+    border-color: var(--red);
+  }
+  .card .num {
+    font-family: 'Cinzel', serif;
+    color: var(--red);
+    font-size: 0.85rem;
+    letter-spacing: 2px;
+    margin-bottom: 14px;
+    display: block;
+  }
+  .card h3 {
+    font-family: 'Cinzel', serif;
+    font-size: 1.18rem;
+    color: var(--blue-dark);
+    margin-bottom: 12px;
+    font-weight: 600;
+  }
+  .card p {
+    font-size: 0.92rem;
+    color: var(--blue);
+    line-height: 1.6;
+  }
+
+  /* ===== GALLERY ===== */
+  .gallery {
+    padding: 40px 6vw 100px;
+    max-width: 1200px;
+    margin: 0 auto;
+  }
+  .gallery-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(230px, 1fr));
+    gap: 46px 34px;
+    perspective: 1400px;
+    margin-top: 40px;
+  }
+  .gphoto {
+    position: relative;
+    border-radius: 6px;
+    overflow: hidden;
+    box-shadow: 0 24px 46px rgba(23,63,89,0.28), 0 6px 14px rgba(23,63,89,0.14);
+    transition: transform 0.18s ease-out, box-shadow 0.18s ease-out;
+  }
+  .gphoto img {
+    display: block;
+    width: 100%;
+    height: auto;
+  }
+  .gphoto.r1 { transform: rotateY(-6deg) rotateX(4deg) rotateZ(-3deg); }
+  .gphoto.r2 { transform: rotateY(7deg) rotateX(-3deg) rotateZ(2deg); }
+  .gphoto.r3 { transform: rotateY(-4deg) rotateX(-4deg) rotateZ(3deg); }
+  .gphoto.r4 { transform: rotateY(6deg) rotateX(3deg) rotateZ(-2deg); }
+  .gphoto.r5 { transform: rotateY(-7deg) rotateX(2deg) rotateZ(4deg); }
+  .gphoto:hover {
+    transform: rotateY(0deg) rotateX(0deg) rotateZ(0deg) translateY(-6px) scale(1.03);
+    box-shadow: 0 34px 60px rgba(23,63,89,0.36);
+  }
+  .gallery-note {
+    text-align: center;
+    font-size: 0.78rem;
+    color: var(--blue-light);
+    margin-top: 36px;
+    font-style: italic;
+  }
+
+  /* ===== TESTIMONIALS ===== */
+  .testimonials {
+    padding: 20px 6vw 100px;
+    max-width: 1150px;
+    margin: 0 auto;
+  }
+  .t-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+    gap: 26px;
+  }
+  .t-card {
+    background: var(--white);
+    border: 1px solid rgba(34,87,122,0.22);
+    border-radius: 6px;
+    padding: 28px 26px;
+    box-shadow: 0 4px 14px rgba(23,63,89,0.06);
+  }
+  .t-card .stars {
+    color: var(--red);
+    font-size: 0.95rem;
+    margin-bottom: 14px;
+    letter-spacing: 2px;
+  }
+  .t-card p.quote-text {
+    font-size: 0.95rem;
+    color: var(--blue-dark);
+    line-height: 1.6;
+    font-style: italic;
+    margin-bottom: 18px;
+  }
+  .t-card .reviewer {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+  }
+  .t-card .avatar {
+    width: 42px; height: 42px;
+    border-radius: 50%;
+    background: var(--blue);
+    color: var(--white);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-family: 'Cinzel', serif;
+    font-weight: 700;
+    font-size: 1.05rem;
+    flex-shrink: 0;
+  }
+  .t-card .r-name {
+    font-family: 'Cinzel', serif;
+    font-weight: 600;
+    font-size: 0.95rem;
+    color: var(--blue-dark);
+  }
+  .t-card .r-title {
+    font-size: 0.75rem;
+    color: var(--blue-light);
+    letter-spacing: 0.5px;
+  }
+  .t-note {
+    text-align: center;
+    font-size: 0.78rem;
+    color: var(--blue-light);
+    margin-top: 30px;
+    font-style: italic;
+  }
+
+  /* ===== CTA ===== */
+  .cta-section {
+    text-align: center;
+    padding: 50px 20px 110px;
+  }
+  .cta-btn {
+    font-family: 'Cinzel', serif;
+    font-weight: 700;
+    font-size: clamp(1.05rem, 2.4vw, 1.35rem);
+    letter-spacing: 1.5px;
+    color: var(--white);
+    background: var(--red);
+    border: none;
+    border-radius: 3px;
+    padding: 20px 46px;
+    display: inline-block;
+    text-decoration: none;
+    box-shadow: 0 14px 30px rgba(251,54,64,0.30);
+    transition: transform 0.15s ease, box-shadow 0.15s ease, background 0.15s ease;
+  }
+  .cta-btn:hover {
+    transform: translateY(-3px);
+    background: var(--red-dark);
+    box-shadow: 0 20px 40px rgba(251,54,64,0.40);
+  }
+  .cta-note {
+    margin-top: 20px;
+    font-size: 0.85rem;
+    color: var(--blue);
+    letter-spacing: 0.5px;
+  }
+
+  footer {
+    text-align: center;
+    padding: 30px 20px 40px;
+    font-size: 0.78rem;
+    color: var(--blue-light);
+    letter-spacing: 1px;
+    border-top: 1px solid rgba(34,87,122,0.18);
+  }
+
+  @media (max-width: 880px) {
+    .hero {
+      padding: 100px 6vw 70px;
+      justify-content: center;
+    }
+    .hero-overlay {
+      background: linear-gradient(180deg, rgba(8, 14, 20, 0.85) 0%, rgba(8, 14, 20, 0.75) 50%, rgba(8, 14, 20, 0.95) 100%);
+    }
+    .hero-text { 
+      text-align: center;
+      max-width: 100%;
+    }
+    .roles { justify-content: center; }
+    .quote { 
+      text-align: left; 
+      margin-left: auto; 
+      margin-right: auto; 
+      max-width: 480px; 
+    }
+    .plaque { 
+      margin-left: auto; 
+      margin-right: auto; 
+    }
+    .gphoto { transform: none !important; }
+  }
+
+  @media (prefers-reduced-motion: reduce) {
+    .card, .gphoto { transition: none; }
+  }
+</style>
+</head>
+<body>
+
+<!-- FULL-PAGE HERO SECTION WITH ATTACHED SPY IMAGE -->
+<section class="hero" id="heroSection">
+  <img class="hero-bg-media" src="spy-hero.jpg" alt="Raju Bhai - Special Operations & Finance Consultant">
+  <div class="hero-overlay"></div>
+
+  <div class="hero-text">
+    <div class="eyebrow">FINANCE · INSURANCE · SPECIAL OPERATIONS</div>
+    <h1 class="name3d" id="name3d">RAJU BHAI</h1>
+
+    <div class="telugu-tag">
+      Icchata anni works cheyyabadunu
+      <span class="translation">(all works will be done here)</span>
+    </div>
+
+    <div class="roles">
+      <span class="role-pill red-fill">Finance Consultant</span>
+      <span class="role-pill">Insurance Agent</span>
+      <span class="role-pill blue-fill">Special Operations</span>
+    </div>
+
+    <p class="quote">"Discretion drives impact. Same mission, bigger possibilities."</p>
+
+    <div class="plaque">
+      <div class="title">DISCRETION DRIVES IMPACT</div>
+      <div class="sub">Intelligence · Strategy · Results</div>
+      <div class="divider"></div>
+      <div class="phone-row">
+        <div class="phone-icon">📞</div>
+        <div>
+          <div class="phone-label">Call Direct</div>
+          <div class="phone-number">99123 45701</div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- SIGNATURE STRIP -->
+<div class="strip">
+  <p>FAST APPROVALS · RELIABLE COVERAGE · CONFIDENTIAL EXECUTION</p>
+</div>
+
+<!-- SERVICES -->
+<section class="services" id="services">
+  <div class="section-head">
+    <div class="eyebrow">WHAT WE DELIVER</div>
+    <h2>Comprehensive Solutions</h2>
+  </div>
+
+  <div class="grid">
+    <div class="card">
+      <span class="num">01</span>
+      <h3>Business & Personal Loans</h3>
+      <p>Quick turnaround, flexible terms, and trusted financial advisory customized to fuel your enterprise or personal projects.</p>
+    </div>
+
+    <div class="card">
+      <span class="num">02</span>
+      <h3>Life & Asset Insurance</h3>
+      <p>Shield what matters most. Bulletproof insurance planning for health, life, real estate, and vehicle portfolios.</p>
+    </div>
+
+    <div class="card spy-card">
+      <span class="num">03</span>
+      <h3>Special Operations & Intel</h3>
+      <p>Confidential background verification, corporate intelligence, asset tracing, and discreet problem resolution.</p>
+    </div>
+
+    <div class="card">
+      <span class="num">04</span>
+      <h3>All Works Done</h3>
+      <p>Government liaison, strategic documentation, licensing, and high-priority end-to-end task execution.</p>
+    </div>
+  </div>
+</section>
+
+<!-- TESTIMONIALS -->
+<section class="testimonials">
+  <div class="section-head">
+    <div class="eyebrow">REPUTATION</div>
+    <h2>Client Verdicts</h2>
+  </div>
+
+  <div class="t-grid">
+    <div class="t-card">
+      <div class="stars">★★★★★</div>
+      <p class="quote-text">"When conventional routes stalled my commercial loan, Raju Bhai cleared it in 48 hours. Absolute precision."</p>
+      <div class="reviewer">
+        <div class="avatar">V</div>
+        <div>
+          <div class="r-name">Vikram R.</div>
+          <div class="r-title">Real Estate Developer</div>
+        </div>
+      </div>
+    </div>
+
+    <div class="t-card">
+      <div class="stars">★★★★★</div>
+      <p class="quote-text">"Utmost confidentiality and speed. Handled a sensitive asset verification without raising a single eyebrow."</p>
+      <div class="reviewer">
+        <div class="avatar">S</div>
+        <div>
+          <div class="r-name">Suresh K.</div>
+          <div class="r-title">Logistics Director</div>
+        </div>
+      </div>
+    </div>
+
+    <div class="t-card">
+      <div class="stars">★★★★★</div>
+      <p class="quote-text">"Icchata anni works cheyyabadunu is not just a punchline—it is a fact. Best consultant in the business."</p>
+      <div class="reviewer">
+        <div class="avatar">M</div>
+        <div>
+          <div class="r-name">Mahesh P.</div>
+          <div class="r-title">Fleet Owner</div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- CTA -->
+<section class="cta-section">
+  <a href="tel:9912345701" class="cta-btn">GET IN TOUCH WITH RAJU BHAI</a>
+  <div class="cta-note">Direct line · Immediate response · Complete discretion</div>
+</section>
+
+<footer>
+  © 2026 RAJU BHAI CONSULTANCY. ALL RIGHTS RESERVED. DISCRETION GUARANTEED.
+</footer>
+
+</body>
+</html>
